@@ -70,3 +70,15 @@ const updateUI = (data) => {
   `;
   });
 };
+
+// delete user
+
+document.addEventListener("click", (e) => {
+  if (e.target.classList[0] === "user__delete--btn") {
+    e.target.parentElement.remove();
+  }
+
+  if (!user.children.length) {
+    clearBtn.classList.add("hidden");
+  }
+});
