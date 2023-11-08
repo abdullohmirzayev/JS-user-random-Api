@@ -4,6 +4,20 @@ const user = document.getElementById("user");
 const deleteBtn = document.getElementById("delete__btn");
 const clearBtn = document.getElementById("clear__button");
 
+// refresh
+formButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  reload();
+  clearBtn.classList.remove("hidden");
+});
+
+// clear info
+clearBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  user.innerHTML = "";
+  clearBtn.classList.add("hidden");
+});
+
 // get result and update UI
 
 const updateUI = (data) => {
@@ -11,7 +25,6 @@ const updateUI = (data) => {
   data.forEach((item) => {
     console.log(item);
     const { gender, name, picture, location, dob } = item;
-
     user.innerHTML += `
       <li class="user__item">
         <button id="delete__btn" class="user__delete--btn">
