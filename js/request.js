@@ -42,7 +42,7 @@ const getData = (resource) => {
 const reload = () => {
   getData(API)
     .then((data) => {
-      console.log(data);
+      updateUI(data);
     })
     .catch((err) => {
       console.log(err);
