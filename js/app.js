@@ -18,12 +18,25 @@ clearBtn.addEventListener("click", (e) => {
   clearBtn.classList.add("hidden");
 });
 
+// search by name
+form["form__input"].addEventListener("input", () => {
+  const inputValue = form["form__input"].value.toLowerCase();
+  const name = document.querySelectorAll(".user__name");
+
+  name.forEach((item) => {
+    if (item.lastElementChild.textContent.toLowerCase().includes(inputValue)) {
+      item.parentElement.classList.remove("hidden");
+    } else {
+      item.parentElement.classList.add("hidden");
+    }
+  });
+});
+
 // get result and update UI
 
 const updateUI = (data) => {
   user.innerHTML = "";
   data.forEach((item) => {
-    console.log(item);
     const { gender, name, picture, location, dob } = item;
     user.innerHTML += `
       <li class="user__item">
